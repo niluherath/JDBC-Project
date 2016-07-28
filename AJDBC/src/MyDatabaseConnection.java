@@ -17,10 +17,17 @@ public class MyDatabaseConnection {
 		try {
 			
 			JDBC_DRIVER = "com.mysql.jdbc.Driver"; 
+			try {
+				Class.forName(JDBC_DRIVER);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+			JDBC_DRIVER = "com.mysql.jdbc.Driver"; 
 			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "student" , "password");
-			
+			System.out.println("Connected to the database");
 			sta = myConn.createStatement();
-		//	sta.executeQuery(sql)
+		
 			
 			
 			
